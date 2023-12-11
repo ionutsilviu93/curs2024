@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucrul cu datele pe front-end</title>
+</head>
+<body>
+
+    <div id="quiz-container"></div>
+    <button id="submit-button">Submit Answers</button>
+    <script>
+        function generateQuiz(questions) {
+            const quizContainer = document.getElementById('quiz-container');
+            let html = '';
+
+            for (const key in questions) {
+                if (questions.hasOwnProperty(key)) {
+                    const questionData = questions[key];
+                    html += `<div class="question">
+                            <p>${questionData.question}</p>
+                            <ul>`;
+                    questionData.options.forEach((option, index) => {
+                        html += `<li>
+                                <input type="radio" name="${key}" value="${option}" id="${key}_${index}">
+                                <label for="${key}_${index}">${option}</label>
+                            </li>`;
+                    });
+                    html += `</ul></div>`;
+                }
+            }
+
+            quizContainer.innerHTML = html;
+        }
+        function storeUserAnswers() {
+            const userAnswers = {};
+            const questions = document.querySelectorAll('.question');
+
+            questions.forEach(question => {
+                const input = question.querySelector('input[type="radio"]:checked');
+                if (input) {
+                    userAnswers[input.name] = input.value;
+                }
+            });
+
+            localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
+        }
+        function checkUserAnswers() {
+            const userAnswers = JSON.parse(localStorage.getItem('userAnswers'));
+
+            if (userAnswers) {
+                for (const key in userAnswers) {
+                    if (userAnswers.hasOwnProperty(key)) {
+                        const input = document.querySelector(`input[name="${key}"][value="${userAnswers[key]}"]`);
+                        if (input) {
+                            input.checked = true;
+                        }
+                    }
+                }
+            }
+        }
+        fetch('./quiz.json')
+            .then(response => response.json())
+            .then(data => {
+                const quizData = data.quiz;
+                generateQuiz(quizData);
+                checkUserAnswers();
+            })
+            .catch(error => console.error(error));
+        document.getElementById('submit-button').addEventListener('click', storeUserAnswers);
+    </script>
+
+</body>
+
+</html>

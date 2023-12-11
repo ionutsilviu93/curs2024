@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        Folosing una din cele 5 metode prezentate creati 2 obiecte
+    de tip Student,cu structura(membrii obiectului):
+        Proprietati: id, nume, varsta ,nota1,nota2,media;
+        Metode:salut(),examen(),calMedia();
+        Optimizati,la nivel de memorie, folosind prototype.
+-->
+    <!-- functiile constructor sunt scrise cu litera mare "buna practica" -->
+    <script>
+        //sunt obligat sa instantiez cu 5 parametri,dar daca vrea sa fac ultimii 2 parametri sa fie optionali
+        //le dam o valoarea default adica =0
+
+        function Student(idStudent, numeStudent, varstaStudent, nota1Student = 0, nota2Student = 0) {
+            //astea sunt proprietati care imi descriu obiectul
+            this.id = idStudent;
+            this.nume = numeStudent;
+            this.varsta = varstaStudent;
+            this.nota1 = nota1Student;
+            this.nota2 = nota2Student;
+            this.examen = false; //inainte sa ajunga elevul sa sustina examenul ...false dupa ce il sustine e true
+                                //si dupa facem o metoda de siguranta
+            //metode adica ce stie sa imi faca
+            this.salut = function () {
+                console.log('Buna ziua numele meu este ' + this.nume);
+            }
+            this.mergeLaExamen = function (nota) {
+                if (this.examen === true && this.nota1 == 0) {
+                    this.nota1 = nota;
+                }
+                else if(this.examen === true && this.nota2 == 0){
+                    this.nota2 = nota;
+                }
+                else{
+                    console.log('este abs!')
+                }
+            }
+            this.calMedia = function(){
+                return(this.nota1 + this.nota2)/2
+            }
+        }
+        //daca vreau sa imi fac primul student,etc
+        const st1 = new Student(1,'Popescu Marian',20);
+        const st2 = new Student(2,'Ionescu Dan',21);
+        
+        console.log(st1);
+        console.log(st2);
+
+        st1.salut();
+        st2.salut();
+        //st1 merge la examen
+        st1.examen = true;
+        //st1 obtine nota 10 la examen
+        st1.mergeLaExamen(10);
+        //mai merge la un examen
+        st1.mergeLaExamen(8);
+
+        //sa afisam notele
+        console.log(st1.nota1, st1.nota2);
+
+        console.log('media este: ', st1.calMedia());
+        console.log('media este: ', st2.calMedia());
+
+        
+
+
+        
+    </script>
+</body>
+
+</html>

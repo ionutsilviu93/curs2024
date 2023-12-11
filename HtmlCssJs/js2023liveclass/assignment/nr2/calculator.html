@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+
+<body>
+    <form>
+        <div class=titlul> Calculator</div>
+        <table id="calculator">
+            <tr>
+                <td>
+                    <input id="clear" type="button" value="C" onclick="clearr()">
+                </td>
+                <td colspan="3">
+                    <input type="text" placeholder="0" name="Display" class="display" id="screen" />
+                </td>
+            </tr>
+            <tr>
+                <td><input class="operator" type="button" value="+" onclick="tasta('+')"> </td>
+                <td><input type="button" value="1" onclick="tasta('1')"> </td>
+                <td><input type="button" value="2" onclick="tasta('2')"> </td>
+                <td><input type="button" value="3" onclick="tasta('3')"> </td>
+            </tr>
+            <tr>
+                <td><input class="operator" type="button" value="-" onclick="tasta('-')"> </td>
+                <td><input type="button" value="4" onclick="tasta('4')"> </td>
+                <td><input type="button" value="5" onclick="tasta('5')"> </td>
+                <td><input type="button" value="6" onclick="tasta('6')"> </td>
+            </tr>
+            <tr>
+                <td><input class="operator" type="button" value="*" onclick="tasta('*')"> </td>
+                <td><input type="button" value="7" onclick="tasta('7')"> </td>
+                <td><input type="button" value="8" onclick="tasta('8')"> </td>
+                <td><input type="button" value="9" onclick="tasta('9')"> </td>
+            </tr>
+            <tr>
+                <td><input class="operator" type="button" value="/" onclick="tasta('/')"> </td>
+                <td><input type="button" value="." onclick="tasta('.')"> </td>
+                <td><input type="button" value="0" onclick="tasta('0')"> </td>
+                <td><input class="operator" type="button" value="=" onclick="calculeaza()"> </td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="./calculator.js"></script>
+</body>
+
+</html>

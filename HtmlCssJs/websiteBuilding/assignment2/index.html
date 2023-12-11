@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment 2 - Website Building</title>
+        <style>
+            body {
+                box-sizing: border-box;
+                font-family: sans-serif;
+            }
+
+            #login-container {
+                width: 460px;
+                margin: 0 auto;
+            }
+
+            form label,
+            form input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            form input {
+                padding: 8px;
+            }
+
+            form label {
+                font-weight: bold;
+            }
+
+            form div {
+                margin: 16px 0px;
+            }
+            
+            
+            </style>
+           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+            <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            crossorigin="anonymous"
+          />
+          </head>
+
+    <body>
+
+        <div id="login-container">
+
+            <form>
+                <div>
+                    <label for="username">Username:</label>
+                    <input id="username" type="text">
+                    <span class="material-symbols-outlined">
+                        done
+                        </span>
+                    </div>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <input id="password" type="password">
+                    <span class="material-symbols-outlined">
+                        done
+                        </span>
+                </div>
+
+                <input type="submit" value="Login">
+            </form>
+            <div id="error"></div>
+        </div>
+        <script>
+           
+const name = document.getElementById('username');
+const password = document.getElementById('password');
+const form = document.getElementById('login-container');
+const error = document.getElementById('error')
+form.addEventListener('submit', (e) => {
+  let messages = []
+  if (name.value === '' || name.value === null) {
+    messages.push('Please enter username');
+    document.getElementById('username').style.border ="2px solid red";
+  }
+  if (password.value === '' || password.value === null) {
+    messages.push('Please enter password')
+    document.getElementById('password').style.border ="2px solid red";
+  }
+  if (name.value === 'new_user' && password.value === '123456789') {
+    messages.push('Succesful login!')
+    document.getElementById('username').style.border ="2px solid green";
+    document.getElementById('password').style.border ="2px solid green";
+  }
+  if (name.value == 'new_user') {
+    document.getElementById('username').style.border ="2px solid green";
+  }
+  
+  if (name.value != 'new_user') {
+    messages.push('Please enter a valid username')
+    document.getElementById('username').style.border ="2px solid red";
+  }
+  if (password.value != '123456789') {
+    messages.push('Please enter a valid password')
+    document.getElementById('password').style.border ="2px solid red";
+  }
+
+  if (messages.length > 0) {
+    e.preventDefault();
+    error.innerText = messages.join(', ');
+  }
+})
+
+
+
+
+
+        </script>
+    </body>
+</html>

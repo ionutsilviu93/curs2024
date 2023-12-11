@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //operatul "+" in fata la prompt converteste/transforma in numar daca poate
+            //fara "+" concateneaza pentru ca in prompt ele sunt siruri
+            
+            // let a = +prompt('Primul meu numar este: ',3);
+            // let b = +prompt( 'Al 2-lea numar este: ',2);
+            // alert(`Suma este : ${a + b}`);
+            // alert(typeof a);
+
+            let a = +prompt('Primul meu numar este: ',3);
+            let b = +prompt( 'Al 2-lea numar este: ',2);
+            a = Number(a);
+            b = Number(b);
+            alert(typeof a);
+            alert(`Suma este : ${a + b}`);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p> ce afiseaza in consola urmatorul script?</p>
+<body>
+    <script>
+        (function(){
+            var a=b=3;
+        })();
+        console.log("a defined?" + (typeof a !== 'undefined'));
+        console.log("b defined?" + (typeof b !== 'undefined'));
+        // a undefined
+        // b True
+        //atribuirea se face de la stanga la dreapta a=b dar "b" nu e definit
+        //dupa urmeaza b=3 dar nu se mai propaga si la "a" si "a" ramane nedefinit
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator basic</title>
+</head>
+
+<body>
+    <script>
+        function inmultire(a, b) {
+            return a * b;
+        }
+
+        function adunare(n, m = 5) {
+            if (typeof n == "number" && typeof m == "number") {
+                return n + m;
+            }
+            else {
+                return 0;
+            }
+        }
+        function scadere(n, m) {
+            if (n < m) {
+                return n - m;
+            }
+            else {
+                m - n;
+            }
+        }
+        function impartire(n, m) {
+            if (n < m) {
+                return parseInt(n / m);
+            }
+            else {
+                parseInt(m / n);
+            }
+        }
+        // console.log(inmultire(5, 4));
+        // let x = 20, y = 22;
+        // console.log(`adunarea dintre ${x} si ${y} este`, adunare(x, y));
+        // console.log(`scaderea dintre ${x} si ${y} este`, scadere(x, y));
+        // console.log(`impartirea dintre ${x} si ${y} este`, impartire(x, y));
+
+        let x = eval(prompt('Primul numar este', 2));
+        let y = eval(prompt('Al 2-lea numar este', 4));
+        let op = 'a';
+        let operatie =prompt('Operatia efectuata este : a- adunare, s- scadere, im- impartire, in- inmultire', op);
+        if(operatie == 'a'){
+            console.log('rezultatul adunarii este', adunare(x,y));
+        }
+        if(operatie == 's'){
+            console.log('rezultatul scaderii este', scadere(x,y));
+        }
+        if(operatie == 'im'){
+            console.log('rezultatul impartirii este', impartire(x,y));
+        }
+        if(operatie == 'in'){
+            console.log('rezultatul inmultirii este', inmultire(x,y));
+        }
+    </script>
+</body>
+
+</html>

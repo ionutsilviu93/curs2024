@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //functia 'array.push()' imi adauga la final 1 sau 
+        //mai multe elemente in array-ul meu
+
+        var fruit = ['apple', 'orange', 'grapes'];
+        var fruitnew = fruit.push('watermelon', 'kiwi');
+        console.log(fruit); // ['apple','orange','grapes', 'watermelon','kiwi']
+        console.log(fruitnew); // 5
+
+        //'array.pop()' scot ultimul element
+        //principiul de stiva ultimu venit primu iesit
+        //daca am elemente peste elemente nu pot sa ajung la elementul de jos daca nu il scot
+        //pe cel de sus
+ 
+        //daca vreau sa imi afiseze elementul sters si sa fac ceva cu el
+        let nume = fruit.pop();
+        console.log(fruit);
+        console.log(nume);
+
+        //daca nu vreau sa imi afiseze elementul
+        fruit.pop();
+        console.log(fruit);
+
+        //daca vreau sa adaug un element la inceput am metoda 'array.unshift()'
+
+        fruit.unshift('Ananas','Para');
+        console.log(fruit);
+        //daca vreau sa sterg primul element folosesc 'array.shift()'
+        fruit.shift();
+        console.log(fruit);
+
+        // array.forEach() este o functie care are in interiorul ei un contor
+        // care parcurge fiecare obiect din array-ul meu
+
+        fruit.forEach(afiseaza);
+
+        function afiseaza(item){
+            console.log(item);
+        }
+
+        //'forEach' si 'map' pot face acelasi lucru
+        //dar spre deosebire de 'forEach' care parcurge array-ul dar nu returneaza nimic
+        //'map' parcurge fiecare item se opreste cand mi se termina array-ul
+        //dar imi returneaza un alt array si primul array mi-l lasa neatins
+        //toate modificarile sunt salvate in noul array
+        //toUpperCase imi scrie tot cu litera mare
+        let myArr = fruit.map(item => item.toUpperCase());
+        console.log(myArr);
+
+        
+
+    </script>
+
+</body>
+
+</html>

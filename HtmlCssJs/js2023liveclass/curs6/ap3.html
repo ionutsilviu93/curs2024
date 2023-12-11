@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+//vrem sa concatenam 2 array
+        const arr = new Array(3);
+        arr[0] = 1;
+        arr[1] = 5;
+        arr[2] = 7;
+        arr[3] = 10;
+        arr[4] = 11;
+        arr['nume'] = 'Ion';
+
+        const arrNumeric = [1, 2, 5,11, 8, 10];
+
+        let myArr =arrNumeric.concat(arr);
+        console.log(myArr);
+        //Ion a fost ignorat,daca avem key numerice folosim array
+        //daca avem si siruri folosim obiecte
+
+        // in modul asta  mi le transforma in siruri si mi le scrie legat
+        //dar daca pun let in fata la myArr imi da eroare pentru ca variabila trebuie sa fie unica
+        myArr = arrNumeric + arr;
+        console.log(myArr);
+        //reverse mi le inverseaza dupa key
+        console.log(arrNumeric.reverse());
+        // cu sort le aranjam crescator dar daca am nr mari ex 10,11 
+        //imi citeste primul nr 1 si il pune inainte la 2
+        console.log(arrNumeric.sort());
+    </script>
+</body>
+
+</html>

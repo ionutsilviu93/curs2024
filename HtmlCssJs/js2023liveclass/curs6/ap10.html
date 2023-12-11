@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="sursa">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, voluptate, rerum beatae,
+             minus ullam 004 tenetur  +4 perspiciatis +4 07111111111 reiciendis qui  004 0722 222222 dolorem quia sed cumque laboriosam adipisci 
+             eos esse magnam saepe nulla. Deserunt. 0766588792
+             Lorem 0400653612 ipsum dolor sit amet consectetur adipisicing elit. Ut, voluptate, rerum beatae,
+             minus ullam tenetur +4 0744 4444444 perspiciatis reiciendis qui dolorem quia sed cumque laboriosam adipisci 
+             eos ( 0799 665 123)esse  0744 6666666magnam saepe nulla. Deserunt.
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, voluptate, rerum beatae,
+             minus ullam tenetur perspiciatis reiciendis qui dolorem quia sed cumque laboriosam adipisci 
+             eos esse magnam saepe nulla. Deserunt.            0788 950 463
+        </p>
+        <p id="destinatie"></p>
+        
+        <script>
+            let sursa = document.getElementById('sursa').innerHTML;
+            console.log(sursa);
+            let pattern = /[\+]?[0-9\s]{10,13}/g;
+            let result = sursa.match(pattern);
+            document.getElementById("destinatie").innerHTML = result;
+
+        </script>
+    </body>
+</html>

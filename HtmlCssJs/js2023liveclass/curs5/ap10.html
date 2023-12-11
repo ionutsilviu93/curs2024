@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>metoda Constructor function:</title>
+</head>
+<body>
+    <!--Metoda 2
+         Definim obiecte folosind metoda Constructor function: -->
+
+    <script>
+
+        // function masinaNoua(marca, model, culoare){
+        //     const obj = {};
+        //     obj.marca = marca;
+        //     obj.model = model;
+        //     obj.culoare = culoare;
+//Observatie "= marca;" este variabila pe care o primesc eu ca parametru din paranteze de la masinaNoua
+//iar obj.marca  in cazul asta "marca" este proprietatea obiectului
+//sa evitam confuzia le comentam si le modificam
+
+function masinaNoua(marcaMasina, modelMasina, culoareMasina){
+            const obj = {};
+            obj.marca = marcaMasina;
+            obj.model = modelMasina;
+            obj.culoare = culoareMasina;
+            //functia noastra trebuie sa returneze obiectul creat
+            return obj;
+        }
+
+        //acum incep si imi creez obiecte
+        const dacia = masinaNoua('Dacia','Logan','Alb');
+        const audi = masinaNoua('Audi','Q1','Negru');
+
+        console.log(dacia);
+        console.log(audi);
+ 
+    </script>
+
+</body>
+</html>

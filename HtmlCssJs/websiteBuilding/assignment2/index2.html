@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 2 - Website Building</title>
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    #login-container {
+      width: 460px;
+      margin: 0 auto;
+    }
+
+    form label,
+    form input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    form input {
+      padding: 8px;
+    }
+
+    form label {
+      font-weight: bold;
+    }
+
+    form div {
+      margin: 16px 0px;
+    }
+
+    .failure-icon,
+    .error {
+      color: red;
+    }
+
+    .success-icon {
+      color: green;
+    }
+
+    form div i {
+      position: absolute;
+      padding: 2px;
+    }
+
+    .success-icon,
+    .failure-icon {
+      opacity: 0;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    crossorigin="anonymous" />
+</head>
+
+<body>
+
+  <div id="login-container">
+
+    <form id="form">
+      <div>
+        <label for="username">Username:</label>
+        <i class="fas fa-user"></i>
+        <input id="username" type="text">
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <i class="fas fa-lock"></i>
+        <input id="password" type="password">
+        <i class="fas fa-exclamation-circle failure-icon"></i>
+        <i class="far fa-check-circle success-icon"></i>
+        <div class="error"></div>
+      </div>
+
+      <input type="submit" value="Login">
+    </form>
+
+
+  </div>
+  <script>
+
+    let username = document.getElementById('username');
+    let password = document.getElementById('password');
+    let form = document.getElementById('form');
+    let errorMsg = document.getElementsByClassName('error');
+    let successIcon = document.getElementsByClassName('success-icon');
+    let failureIcon = document.getElementsByClassName('failure-icon');
+
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      mesaj(username, 0, "Please enter username!");
+      mesaj(password, 1, "Please enter a password!");
+    });
+
+    let mesaj = (id, serial, message) => {
+      if (id.value.trim() === "") {
+        errorMsg[serial].innerHTML = message;
+        id.style.border = "2px solid red";
+        failureIcon[serial].style.opacity = "1";
+        successIcon[serial].style.opacity = "0";
+      }
+      else if (username.value.trim() === "new_user" ) {
+        errorMsg[serial].innerHTML = "Succesful Login!";
+        id.style.border = "2px solid green";
+        failureIcon[serial].style.opacity = "0";
+        successIcon[serial].style.opacity = "1";
+      }
+
+      else if (username.value.trim() != "new_user") {
+        errorMsg[serial].innerHTML = "Please enter a valid username!";
+        id.style.border = "2px solid red";
+        failureIcon[serial].style.opacity = "1";
+        successIcon[serial].style.opacity = "0";
+      }
+
+      else if (password.value.trim() === "123456789" ) {
+        errorMsg[serial].innerHTML = "Succesful Login!";
+        id.style.border = "2px solid green";
+        failureIcon[serial].style.opacity = "0";
+        successIcon[serial].style.opacity = "1";
+      }
+
+      else if (password.value.trim() != "123456789") {
+        errorMsg[serial].push.innerHTML = "Please enter a valid password!";
+        id.style.border = "2px solid red";
+        failureIcon[serial].style.opacity = "1";
+        successIcon[serial].style.opacity = "0";
+      }
+      
+      else {
+        errorMsg[serial].innerHTML = "";
+        id.style.border = "2px solid green";
+        failureIcon[serial].style.opacity = "0";
+        successIcon[serial].style.opacity = "1";
+      }
+    }
+   
+
+
+  </script>
+</body>
+
+</html>

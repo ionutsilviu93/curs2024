@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 - Website Building</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous" />
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #login-container {
+            width: 460px;
+            margin: 0 auto;
+        }
+
+        form label,
+        form input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form input {
+            padding: 8px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form div {
+            margin: 16px 0px;
+        }
+
+        .failure-icon {
+            color: red;
+        }
+
+        .success-icon {
+            color: green;
+        }
+
+        .row {
+            position: relative;
+        }
+
+        .success-icon,
+        .failure-icon {
+            display: none;
+            position: absolute;
+            padding: 2px;
+            right: 5px;
+            top: 23px;
+        }
+
+        .row.success input[type="text"],
+        .row.success input[type="password"] {
+            border: 2px solid green;
+        }
+
+        .row.error input[type="text"],
+        .row.error input[type="password"] {
+            border: 2px solid red;
+        }
+
+        .row.success .success-icon {
+            display: inline-block;
+        }
+
+        .row.error .failure-icon {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="login-container">
+
+        <form id="form">
+            <div class="row">
+                <label for="username">Username:</label>
+                <i class="fas fa-user"></i>
+                <input id="username" type="text">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+            </div>
+
+            <div class="row">
+                <label for="password">Password:</label>
+                <i class="fas fa-lock"></i>
+                <input id="password" type="password">
+                <i class="fas fa-exclamation-circle failure-icon"></i>
+                <i class="far fa-check-circle success-icon"></i>
+            </div>
+
+            <input type="submit" id="login" value="Login">
+        </form>
+    </div>
+    <script>
+
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const form = document.getElementById('form');
+
+        const append_message = (parent, message, el_id) => {
+            const p = document.createElement('p');
+            p.innerText = message;
+            p.className = "msg";
+            if (el_id) {
+                p.id = el_id;
+            }
+            parent.appendChild(p);
+        }
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            let success = true;
+
+            const user_val = username.value;
+            const pass_val = password.value;
+
+            [username.parentElement, password.parentElement].forEach(el => {
+                el.classList.remove('success', 'error');
+            })
+
+            document.querySelectorAll('.msg').forEach(el => {
+                el.remove();
+            })
+
+            const success_msg = document.getElementById('success_msg');
+            if (success_msg) {
+                success_msg.remove();
+            }
+
+            if (user_val == "new_user") {
+                username.parentElement.classList.add('success');
+            } else {
+                success = false;
+                username.parentElement.classList.add('error');
+
+                if (user_val == '') {
+                    append_message(username.parentElement, "Please enter username");
+                } else {
+                    append_message(username.parentElement, "Please enter a valid username");
+                }
+            }
+
+            if (pass_val == "123456789") {
+                password.parentElement.classList.add('success');
+            } else {
+                success = false;
+                password.parentElement.classList.add('error');
+
+                if (pass_val == '') {
+                    append_message(password.parentElement, "Please enter password");
+                } else {
+                    append_message(password.parentElement, "Please enter a valid password");
+                }
+            }
+
+            if (success) {
+                append_message(form, "Successfull login", 'success_msg');
+            }
+        });
+    </script>
+</body>
+
+</html>

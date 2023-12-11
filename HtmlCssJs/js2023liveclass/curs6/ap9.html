@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Modificatori RegEx Javascript</h1>
+    <p id="demo"></p>
+
+    <script>
+        let text = `javascript este un limbaj de programare diferit de limbajul java
+            si nici nu are legatura cu insula Java`;
+        // daca las 'g' cauta numai cu litera mare 'specifica o potrivire globala'
+        //daca las 'gi' keys insesitives nu tine cont de litere mari si mici
+        let pattern = /Java/mi;
+        let result = text.match(pattern);
+
+        document.getElementById("demo").innerHTML = result;
+
+        let str = `1 este luna
+2 maini
+0 cod
+ana
+3 crai`;
+//linia trebuie sa inceapa direct cu cifrele ca sa le detecteze '^' asta inseamna caracterul
+//cand notam intre []trebuie fara spatiu intre ele daca vrem sa cautam mai multe 
+// si valorile puse [] trebuie sa fie la inceput de linie ca sa le gaseasca
+        console.log(str.match(/^[0-9a-z]/gm)); //1,2,3
+        console.log(str.match(/^[1-9]/g)); //1
+
+    </script>
+</body>
+
+</html>

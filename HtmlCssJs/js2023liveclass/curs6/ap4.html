@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Bubble sorting un algoritm de sortare 
+
+        // ap.4 se da un array cu valori numerice.
+        //sa se scrie un algoritm ce ordoneaza crescator.
+        //date de intrare :const myArr =[7,12,3,15,2,16,6,1]
+        //date de iesire : myArr=[1,2,3,6,7,12,15,16]
+
+        const myArr = [7, 12, 3, 15, 2, 16, 6, 1];
+        function interschimbare(newArr, index1, index2) {
+            let aux = newArr[index1];
+            newArr[index1] = newArr[index2];
+            newArr[index2] = aux;
+        }
+
+        function mySort(arr) {
+            var i, j;
+            for (i = 0; i < arr.length; i++) {
+                for (j = 0; j < arr.length - 1; j++) {
+                    //console.log(arr[j], arr[j + 1]);
+
+                    if (arr[j] > arr[j + 1]) {
+                        interschimbare(arr, j, j + 1)
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(mySort(myArr));
+    </script>
+</body>
+
+</html>

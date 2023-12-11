@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functie recursiva</title>
+</head>
+
+<body>
+    <script>
+        //functia asta este apelata si scrii un rand de mai multe ori
+        // function primaFunctie() {
+        //     document.write('<p>Buna seara!</p>');
+        // }
+        // for (let i = 1; i <= 10; i++) {
+        //     primaFunctie();
+        // }
+
+        //functie recursiva este o functie care se apeleaza pe ea insasi 
+        //sau algoritm de recursivitate dar trebuie sa venim cu o conditie sa ii zicem
+        //cand sa se opreasca
+
+        var i = 1;
+        function primaFunctie(){
+            i = i + 1;
+            document.write('<p>Buna seara!</p>');
+            if (i <= 10){
+                primaFunctie();
+            }
+        }
+        primaFunctie();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+div{
+    width: 100%;
+    max-width: 400px;
+    height: 460px; /* pot sa pun auto sau px si dupa 
+    adaug overflow si buton pentru scroll 
+    sau calculez intaltimea paragrafului si o 
+    facem in script*/
+    overflow: hidden;
+    margin: 25px;
+    border: 5px #000000 solid;
+    padding: 10px 20px 15px 10px;
+    float: left;
+    text-align: center;
+    background-color: rgba(63, 125, 125,0.7);
+    /*rgba (a este transparenta/opacitate si este intre 0 si 1)
+    color: blueviolet;
+}

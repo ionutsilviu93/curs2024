@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citirea datelor despre studenti</title>
+</head>
+
+<body>
+    <div id="studentData"></div>
+    <script>
+        function Student(name, address, telephone, course) {
+            this.name = name;
+            this.address = address;
+            this.telephone = telephone;
+            this.course = course;
+        }
+
+        Student.prototype.getInfo = function () {
+            return `Name: ${this.name}, Address: ${this.address}, Telephone: ${this.telephone}, Course: ${this.course}`;
+        };
+
+        function readStudentData(data) {
+            const students = [];
+            const lines = data.trim().split('\n');
+            let currentIndex = 0;
+
+            while (currentIndex < lines.length) {
+                const name = lines[currentIndex++];
+                const address = lines[currentIndex++];
+                const telephone = lines[currentIndex++];
+                const course = lines[currentIndex++];
+
+                const student = new Student(name, address, telephone, course);
+                students.push(student);
+            }
+            return students;
+        }
+
+        fetch('https://v-dresevic.github.io/Advanced-JavaScript-Programming/data/students.txt')
+            .then(response => response.text())
+            .then(data => {
+                const students = readStudentData(data);
+                const studentDataElement = document.getElementById('studentData');
+                students.forEach(student => {
+                    const studentInfoElement = document.createElement('p');
+                    studentInfoElement.textContent = student.getInfo();
+                    studentDataElement.appendChild(studentInfoElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</body>
+
+</html>

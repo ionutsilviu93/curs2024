@@ -1,0 +1,20 @@
+h1{
+    border-bottom: 2px solid blue;
+}
+div{
+    width: 600px;
+    margin: auto;
+
+}
+label{
+    display: inline-block;
+    width: 150px;
+}
+input{
+    padding: 15px 5px;
+    margin: 15px;
+}
+button{
+    background-color: aqua;
+    border-radius: 2px;
+}

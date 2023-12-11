@@ -1,0 +1,31 @@
+header a {
+    margin-left: 32px;
+    color: gray;
+}
+
+header a:hover {
+    color: black;
+}
+
+
+
+
+#hero-section{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#text1{
+    position:relative;
+    display: inline;
+    top: 15%;
+    left:5%;
+    font-size: 1,5em;
+    background-color:mediumseagreen ;
+    
+}
+#antet a{
+    color:gray;
+}
+

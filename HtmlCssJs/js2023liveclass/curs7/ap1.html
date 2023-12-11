@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- prima metoda -->
+    <button onclick="alert('S-a dat click')">Data este?</button>
+    <!-- this se refera la obiectul curent/in cazul meu la elementul curent -->
+    <!-- innerHTML= pot sa injectez cod hmtl "daca vreau sa adaug taguri html div,span etc"-->
+    <!-- innerText= cand vreau sa adaug un text simplu .. string sir de caractere-->
+    
+    <button onclick="this.innerHTML=Date()">Data este?</button>
+    <button onclick="this.innerText=Date()">Data este?</button>
+   
+    <button onclick="myFunction(this)">Data este?</button> <!-- metoda asta e mai recomandata-->
+    
+    <!-- metoda pur js -->
+    <button id="myDemo">Data este?</button>
+    <script>
+        function myFunction(obj) {
+            obj.innerHTML = Date();
+        }
+
+        let myButton = document.getElementById('myDemo');
+        myButton.addEventListener('click', function (event) {
+            const element = event.target;
+            element.innerHTML = Date();
+        })
+
+    </script>
+</body>
+
+</html>

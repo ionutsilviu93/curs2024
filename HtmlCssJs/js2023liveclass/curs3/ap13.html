@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>functii anonime</title>
+</head>
+
+<body>
+    <h1>Functii anonime</h1>
+    <script>
+        let myVar = function () {
+            console.log('Salut!');
+        }
+        console.log(typeof myVar);
+        myVar();
+
+
+        (function () {
+            console.log('Buna ziua!');
+        })();
+
+
+
+        (function (a, b) {
+            console.log (a + b);
+        })(3, 7);
+
+        //functii clasice cu returne,functii anonime
+
+        let suma = function (a , b) {
+            return a+b;
+        };
+        console.log(suma);
+
+        //functii Lambda
+        //functii Arraw
+
+        var anon = (a, b) => a+b;
+        //sau
+        var anon =(a,b) =>{ return a+b};
+    </script>
+</body>
+
+</html>
