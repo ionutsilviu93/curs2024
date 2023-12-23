@@ -1,0 +1,110 @@
+
+html{
+    width: 100%;
+}
+*{
+    background: linear-gradient(skyblue,lightgray);
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background: cover;
+}
+.box{
+    background: none;
+}
+a{
+    background: none;
+}
+#table{
+    background: none;
+}
+tr,td,th{background: none;
+}
+
+#nav {
+    line-height:3em;
+    background-color:rgb(14, 19, 114);
+    height:100%;
+    width:25%;
+    float:left;
+    margin-top:15px;
+    padding:5px;
+    position: relative;
+    top: 6em;
+}
+#nav ul{
+    list-style-type: none;
+}
+.box{
+    width:100%;
+    border:2px solid rgb(98, 32, 32);
+    border-radius: 5px;
+    font-size:25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+
+}
+li:nth-child(even){
+    background-color:red;
+}
+li:nth-child(odd){
+    background-color: crimson;
+}
+a:hover{
+    color:blueviolet;
+}
+
+#main {
+    width:50%;
+    float:left;
+    padding:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:1em;
+
+}
+main img{
+    width: 25em; 
+    height: 25em;
+    float: left;
+
+}
+#titlul{
+    clear:left;
+    text-shadow: 0px 0px 7px crimson,0px -7px 7px goldenrod;
+    font-size:3em;
+    text-align: center;
+    border-bottom: 2px solid red;
+    border-top: 2px solid red;
+}
+#top{
+    font-size: larger;
+    border: 1px solid lightgreen ;
+    border-radius: 6px;
+    background-color: rgb(183, 210, 30);
+}
+
+#table{
+    border:3px black solid;
+    text-align: center;
+    background-color: black;
+}
+td,tr,th{
+    border: 3px black solid;
+    border-collapse: collapse;
+    border-radius: 5px;
+}
+th{
+    background-color:gray;
+    color: aquamarine;
+}
+td{
+    background-color: lightgray;
+}
+table tr:hover {
+    color: green;
+}
+p{
+    text-indent: 2em;
+    text-align: left;
+}
