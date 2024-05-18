@@ -2,7 +2,8 @@
 
 namespace Beverages;
 
-interface Beverage {
+interface Beverage
+{
     public function getName();
     public function getType();
 }
