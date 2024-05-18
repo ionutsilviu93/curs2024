@@ -37,19 +37,22 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Device</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <h1>Edit Device</h1>
         <form action="" method="POST">
             <input type="hidden" name="id" value="<?php echo $device['id']; ?>">
             <label for="manufacturer">Manufacturer:</label>
-            <input type="text" name="manufacturer" id="manufacturer" value="<?php echo $device['manufacturer']; ?>" required>
+            <input type="text" name="manufacturer" id="manufacturer" value="<?php echo $device['manufacturer']; ?>"
+                required>
             <br>
             <label for="model">Model:</label>
             <input type="text" name="model" id="model" value="<?php echo $device['model']; ?>" required>
@@ -64,4 +67,5 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         </form>
     </div>
 </body>
+
 </html>
