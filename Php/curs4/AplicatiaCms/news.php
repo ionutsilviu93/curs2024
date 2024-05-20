@@ -22,9 +22,17 @@ class News
         return $newsList;
     }
 
+    public function addComment($userId, $newsId, $comment)
+    {
+        $sql = "INSERT INTO comments (user_id, news_id, comment) VALUES (?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("iis", $userId, $newsId, $comment);
+        return $stmt->execute();
+    }
+
     public function getComments($newsId)
     {
-        $sql = "SELECT * FROM comments WHERE news_id = ?";
+        $sql = "SELECT c.*, u.username FROM comments c JOIN users u ON c.user_id = u.id WHERE c.news_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $newsId);
         $stmt->execute();
@@ -37,14 +45,6 @@ class News
             }
         }
         return $commentsList;
-    }
-
-    public function addComment($userId, $newsId, $comment)
-    {
-        $sql = "INSERT INTO comments (user_id, news_id, comment) VALUES (?, ?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bind_param("iis", $userId, $newsId, $comment);
-        return $stmt->execute();
     }
 }
 ?>
