@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComboBox și Div</title>
+</head>
+<body>
+
+<form>
+    <label for="combo">Selectează o mașină:</label>
+    <select id="combo" onchange="afiseazaValoare()">
+        <option value="volvo">Volvo</option>
+        <option value="seat">Seat</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+</form>
+
+<div id="rezultat"></div>
+
+<script>
+function afiseazaValoare() {
+    // Obține elementul selectat din lista derulantă
+    var selectBox = document.getElementById("combo");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+    // Afișează valoarea în elementul div
+    var divElement = document.getElementById("rezultat");
+    divElement.innerText = "Mașina selectată este: " + selectedValue;
+}
+</script>
+
+</body>
+</html>
