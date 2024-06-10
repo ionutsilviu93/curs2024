@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculează Aria Cercului</title>
+</head>
+
+<body>
+    <h1>Calculează Aria Cercului</h1>
+    <form onsubmit="event.preventDefault(); calculeazaAriaCercului();">
+        <label for="raza">Raza cercului:</label>
+        <input type="text" id="raza" name="raza">
+        <input type="submit" value="Calculează">
+    </form>
+    <p id="rezultat"></p>
+    <script>
+        function calculeazaAriaCercului() {
+            // Preluăm valoarea introdusă pentru raza cercului
+            const raza = parseFloat(document.getElementById('raza').value);
+
+            // Verificăm dacă valoarea introdusă este un număr valid
+            if (isNaN(raza) || raza <= 0) {
+                alert('Te rog să introduci o valoare validă pentru raza cercului.');
+                return;
+            }
+
+            // Constanta pentru valoarea lui π (pi)
+            const pi = Math.PI;
+
+            // Calculăm aria cercului
+            const aria = pi * Math.pow(raza, 2);
+
+            // Afișăm rezultatul
+            document.getElementById('rezultat').textContent = `Aria cercului este: ${aria.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>
