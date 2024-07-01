@@ -1,0 +1,12 @@
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+    position: absolute;
+}
+
+#box1 { background-color: red; left: 50px; top: 50px; }
+#box2 { background-color: green; left: 200px; top: 50px; }
+#box3 { background-color: blue; left: 50px; top: 200px; }
+#box4 { background-color: yellow; left: 200px; top: 200px; }
