@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cititor RSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cititor RSS</h1>
+        <label for="rss-feeds">Alege un feed RSS:</label>
+        <select id="rss-feeds">
+            <option value="">Selectează feed</option>
+        </select>
+
+        <div id="rss-content" class="rss-content">
+        </div>
+    </div>
+
+    <script>
+        function loadFeeds() {
+            fetch('feeds.xml')
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data, 'application/xml');
+                    const feeds = xmlDoc.getElementsByTagName('feed');
+                    const selectBox = document.getElementById('rss-feeds');
+
+                    for (let i = 0; i < feeds.length; i++) {
+                        const title = feeds[i].getElementsByTagName('title')[0].textContent;
+                        const url = feeds[i].getElementsByTagName('url')[0].textContent;
+                        const option = document.createElement('option');
+                        option.value = url;
+                        option.textContent = title;
+                        selectBox.appendChild(option);
+                    }
+                })
+                .catch(error => console.log('Eroare la încărcarea feed-urilor: ', error));
+        }
+
+        function loadRSSContent(feedUrl) {
+            fetch('rss-reader.php?url=' + encodeURIComponent(feedUrl))
+                .then(response => response.json())
+                .then(data => {
+                    const contentDiv = document.getElementById('rss-content');
+                    contentDiv.innerHTML = '';
+
+                    if (data.items && data.items.length > 0) {
+                        data.items.forEach(item => {
+                            const article = document.createElement('div');
+                            article.classList.add('rss-article');
+                            article.innerHTML = `
+                                <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                                <p>${item.description}</p>
+                            `;
+                            contentDiv.appendChild(article);
+                        });
+                    } else {
+                        contentDiv.innerHTML = '<p>Nu au fost găsite articole.</p>';
+                    }
+                })
+                .catch(error => console.log('Eroare la încărcarea RSS-ului: ', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFeeds();
+            document.getElementById('rss-feeds').addEventListener('change', (event) => {
+                const feedUrl = event.target.value;
+                if (feedUrl) {
+                    loadRSSContent(feedUrl);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

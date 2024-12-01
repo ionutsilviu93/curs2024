@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feeds>
+    <feed>
+        <title>News 1</title>
+        <url>https://example.com/rss1.xml</url>
+    </feed>
+    <feed>
+        <title>News 2</title>
+        <url>https://example.com/rss2.xml</url>
+    </feed>
+    <feed>
+        <title>News 3</title>
+        <url>https://example.com/rss3.xml</url>
+    </feed>
+</feeds>
